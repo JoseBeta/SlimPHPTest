@@ -5,6 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require 'vendor/autoload.php';
 
 function cifrando($palabra) {
+    $resultado = "";
     $n=3;
     $julio=array(
         a=>"0",
@@ -61,12 +62,12 @@ function cifrando($palabra) {
         24=>"y",
         25=>"z");
     echo "Mensaje original: ".$palabra."<br>";
-    echo "Mensaje codificado: <br>";
     for($i=0;$i<strlen($palabra);$i++)
     {
         $cifrado=(($julio[$palabra[$i]] + $n))%26;
-        echo $cesar[$cifrado];
+        $resultado .= $cesar[$cifrado];
     }
+    echo "Mensaje codificado: ".$resultado."<br>";
 }
 
 $app = new \Slim\App;
