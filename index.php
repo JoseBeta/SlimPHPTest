@@ -70,9 +70,9 @@ function cifrando($palabra) {
 }
 
 $app = new \Slim\App;
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
+$app->get('/cifrar/{palabra}', function (Request $request, Response $response) {
+    $palabra = $request->getAttribute('palabra');
 
-    cifrando($name);
+    cifrando($palabra);
 });
     $app->run();
